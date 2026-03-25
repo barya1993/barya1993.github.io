@@ -11,11 +11,11 @@ const firebaseConfig = {
 
 let db = null;
 
-// Load Firebase SDKs using compat library (works with dynamic script injection)
+// Load Firebase SDKs using compat library (production minified build)
 function loadFirebase() {
     return new Promise((resolve) => {
         const script = document.createElement('script');
-        script.src = 'https://www.gstatic.com/firebasejs/10.7.0/firebase-compat.js';
+        script.src = 'https://www.gstatic.com/firebasejs/10.7.0/firebase-compat.min.js';
         script.onload = () => {
             firebase.initializeApp(firebaseConfig);
             db = firebase.firestore();
