@@ -11,22 +11,21 @@ const firebaseConfig = {
 
 let db = null;
 
-// Load Firebase SDKs dynamically
+// Load Firebase SDKs using compat library (works with dynamic script injection)
 function loadFirebase() {
     return new Promise((resolve) => {
-        const script1 = document.createElement('script');
-        script1.src = 'https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js';
-        script1.onload = () => {
-            const script2 = document.createElement('script');
-            script2.src = 'https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js';
-            script2.onload = () => {
-                firebase.initializeApp(firebaseConfig);
-                db = firebase.firestore();
-                resolve(true);
-            };
-            document.head.appendChild(script2);
+        const script = document.createElement('script');
+        script.src = 'https://www.gstatic.com/firebasejs/10.7.0/firebase-compat.js';
+        script.onload = () => {
+            firebase.initializeApp(firebaseConfig);
+            db = firebase.firestore();
+            resolve(true);
         };
-        document.head.appendChild(script1);
+        script.onerror = () => {
+            console.log('Firebase loading failed, visitor tracking disabled');
+            resolve(false);
+        };
+        document.head.appendChild(script);
     });
 }
 
