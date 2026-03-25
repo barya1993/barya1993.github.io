@@ -1068,6 +1068,13 @@ footer {
     .about-info, .dp { width: 100%; }
     .project-box { flex-direction: column; height: 800px; }
     .info-div, .image-div { width: 100%; height: 50%; }
+    
+    /* Navbar responsive for tablet */
+    .navbar {
+        width: 90%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 
     .visitor-section h3 {
         font-size: 1.4rem;
@@ -1080,7 +1087,35 @@ footer {
     }
 }
 
+@media (max-width: 600px) {
+    /* Hide navbar on very small screens to prevent overflow */
+    .navbar {
+        display: none;
+    }
+    
+    header {
+        height: 20px;
+    }
+    
+    /* Adjust landing section for small screens */
+    .landing-section {
+        margin-top: 30px;
+    }
+}
+
 @media (max-width: 500px) {
     html { font-size: 45%; }
     #hello-friend { font-size: 2.5rem; }
+    
+    /* Hide custom cursor on mobile */
+    .cursor-inner, .cursor-outer {
+        display: none;
+    }
+    
+    /* Further optimizations for small screens */
+    .about-section, .skills-section, .projects-section-div {
+        width: 95%;
+    }
+    
+    .navbar-tabs-ul { gap: 20px; }
 }
