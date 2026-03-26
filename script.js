@@ -136,36 +136,76 @@ window.addEventListener('load', async () => {
 
 AOS.init();
 
-// Custom cursor
-const cursorInner = document.getElementById('cursor-inner');
-const cursorOuter = document.getElementById('cursor-outer');
-const links = document.querySelectorAll('a, button, label');
+// Detect if device supports touch
+const isTouchDevice = () => {
+    return (('ontouchstart' in window) ||
+            (navigator.maxTouchPoints > 0) ||
+            (navigator.msMaxTouchPoints > 0));
+};
 
-// Add hover effects to links (outside mousemove)
-links.forEach((link) => {
-    link.addEventListener('mouseenter', () => {
-        cursorInner.classList.add('hover');
-        cursorOuter.classList.add('hover');
+// Custom cursor - only if not touch
+if (!isTouchDevice()) {
+    const cursorInner = document.getElementById('cursor-inner');
+    const cursorOuter = document.getElementById('cursor-outer');
+    const links = document.querySelectorAll('a, button, label');
+
+    // Add hover effects to links (outside mousemove)
+    links.forEach((link) => {
+        link.addEventListener('mouseenter', () => {
+            cursorInner.classList.add('hover');
+            cursorOuter.classList.add('hover');
+        });
+
+        link.addEventListener('mouseleave', () => {
+            cursorInner.classList.remove('hover');
+            cursorOuter.classList.remove('hover');
+        });
     });
 
-    link.addEventListener('mouseleave', () => {
-        cursorInner.classList.remove('hover');
-        cursorOuter.classList.remove('hover');
+    document.addEventListener('mousemove', function (e) {
+        const posX = e.clientX;
+        const posY = e.clientY;
+
+        cursorInner.style.left = `${posX}px`;
+        cursorInner.style.top = `${posY}px`;
+
+        cursorOuter.animate({
+            left: `${posX}px`,
+            top: `${posY}px`,
+        }, { duration: 500, fill: 'forwards' });
     });
-});
+}
 
-document.addEventListener('mousemove', function (e) {
-    const posX = e.clientX;
-    const posY = e.clientY;
+// Mobile menu toggle
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const navLinks = mobileMenu.querySelectorAll('a');
 
-    cursorInner.style.left = `${posX}px`;
-    cursorInner.style.top = `${posY}px`;
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    });
 
-    cursorOuter.animate({
-        left: `${posX}px`,
-        top: `${posY}px`,
-    }, { duration: 500, fill: 'forwards' });
-});
+    // Close menu when a link is clicked
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.navbar') && !e.target.closest('.mobile-menu')) {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+}
 
 // Smooth scroll for navigation - only for internal anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
