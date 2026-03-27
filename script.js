@@ -134,7 +134,14 @@ window.addEventListener('load', async () => {
     displayVisitors();
 });
 
-AOS.init();
+// Initialize AOS with mobile-optimized settings
+AOS.init({
+    duration: 800,
+    easing: 'ease-out-cubic',
+    once: true,
+    offset: 50,
+    disable: window.innerWidth < 768 ? 'phone' : false
+});
 
 // Detect if device supports touch
 const isTouchDevice = () => {
@@ -217,3 +224,51 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Active section highlighting on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinksDesktop = document.querySelectorAll('.navbar-tabs-ul li');
+const navLinksMobile = document.querySelectorAll('.mobile-menu ul li');
+
+function updateActiveNav() {
+    const scrollY = window.scrollY;
+    
+    sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 100;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            // Update desktop nav
+            navLinksDesktop.forEach(li => {
+                li.classList.remove('activeThistab');
+                if (li.classList.contains(sectionId)) {
+                    li.classList.add('activeThistab');
+                }
+            });
+            
+            // Update mobile nav
+            navLinksMobile.forEach(li => {
+                li.classList.remove('activeThistab');
+                if (li.classList.contains(sectionId)) {
+                    li.classList.add('activeThistab');
+                }
+            });
+        }
+    });
+}
+
+// Throttle scroll events for performance
+let ticking = false;
+window.addEventListener('scroll', () => {
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            updateActiveNav();
+            ticking = false;
+        });
+        ticking = true;
+    }
+});
+
+// Initial call
+updateActiveNav();
