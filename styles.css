@@ -38,9 +38,19 @@ html {
     --is-touch: 0;
 }
 
+/* Touch device detection */
 @media (hover: none) and (pointer: coarse) {
     :root {
         --is-touch: 1;
+    }
+
+    .cursor-inner,
+    .cursor-outer {
+        display: none !important;
+    }
+
+    .tooltip {
+        opacity: 1;
     }
 }
 
@@ -75,14 +85,6 @@ body {
 
 ::-webkit-scrollbar-thumb {
     background-color: #8000ff;
-}
-
-/* Disable cursor on touch devices */
-@media (hover: none) and (pointer: coarse) {
-    .cursor-inner,
-    .cursor-outer {
-        display: none !important;
-    }
 }
 
 .cursor-inner {
@@ -584,6 +586,26 @@ section {
 }
 
 @media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+
+    .landing-page-container {
+        flex-direction: row;
+        min-height: min(100vh, 600px);
+        padding: 60px 0;
+    }
+
+    .blob {
+        right: -15%;
+        height: 100vh;
+    }
+
+    .text-content {
+        width: 60%;
+        max-width: none;
+    }
+
     .info-dp-section {
         flex-direction: row;
         gap: clamp(30px, 5vw, 50px);
@@ -595,6 +617,20 @@ section {
 
     .dp {
         width: 45%;
+    }
+
+    .project-box {
+        flex-direction: row;
+        min-height: 400px;
+    }
+
+    .info-div {
+        width: 50%;
+    }
+
+    .image-div {
+        width: 50%;
+        min-height: 100%;
     }
 }
 
@@ -650,13 +686,17 @@ section {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
+/* Hover interactions */
 @media (hover: hover) {
-    .tech-stack-box:hover .tooltip {
+    .tech-stack-box:hover .tooltip,
+    .service-logo-box:hover .tooltip {
         opacity: 1;
     }
 
-    .service-logo-box:hover .tooltip {
-        opacity: 1;
+    .service-logo-box:hover {
+        background-color: rgba(128, 0, 255, 0.2);
+        border-color: var(--color-purple);
+        transform: translateY(-5px);
     }
 }
 
@@ -879,14 +919,6 @@ section {
     position: relative;
 }
 
-@media (hover: hover) {
-    .service-logo-box:hover {
-        background-color: rgba(128, 0, 255, 0.2);
-        border-color: var(--color-purple);
-        transform: translateY(-5px);
-    }
-}
-
 .service-logo-box img {
     width: 65%;
     height: 65%;
@@ -911,22 +943,6 @@ section {
     font-size: clamp(0.9rem, 2.2vw, 1.7rem);
     font-weight: 400;
     line-height: 1.65;
-}
-
-@media (min-width: 768px) {
-    .project-box {
-        flex-direction: row;
-        min-height: 400px;
-    }
-
-    .info-div {
-        width: 50%;
-    }
-
-    .image-div {
-        width: 50%;
-        min-height: 100%;
-    }
 }
 
 .project-tech-stack {
@@ -1165,8 +1181,6 @@ footer {
 
 .SocialHandle {
     fill: white;
-    width: 55%;
-    height: 55%;
     width: 50%;
     height: 50%;
 }
@@ -1254,37 +1268,7 @@ footer {
 
 /* ===== RESPONSIVE DESIGN - Mobile-First Breakpoints ===== */
 
-/* Touch device tooltips - disable on hover */
-@media (hover: none) and (pointer: coarse) {
-    .tooltip {
-        opacity: 1;
-    }
-}
-
-/* Tablet and up (768px+) */
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
-
-    .landing-page-container {
-        flex-direction: row;
-        min-height: min(100vh, 600px);
-        padding: 60px 0;
-    }
-
-    .blob {
-        right: -15%;
-        height: 100vh;
-    }
-
-    .text-content {
-        width: 60%;
-        max-width: none;
-    }
-}
-
-/* Large tablet (1024px+) */
+/* Large tablet and up (1024px+) */
 @media (min-width: 1024px) {
     .hamburger {
         display: none !important;
@@ -1301,10 +1285,6 @@ footer {
 
 /* Desktop (1200px+) */
 @media (min-width: 1200px) {
-    html {
-        font-size: 16px;
-    }
-
     .navbar {
         width: 80%;
         height: 80px;
