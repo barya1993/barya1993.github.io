@@ -680,20 +680,46 @@ section {
         border-color: var(--color-purple);
     }
 
-    /* Projects section: Tap to show tooltip */
+    /* Projects section: Always-visible labels below icons on touch */
+    .services-grid {
+        grid-template-columns: repeat(auto-fill, minmax(56px, 1fr));
+        gap: 10px;
+    }
+
     .service-logo-box {
-        cursor: pointer;
-        -webkit-tap-highlight-color: transparent;
+        width: 100%;
+        max-width: 70px;
+        height: auto;
+        padding: 8px 4px 6px;
+        flex-direction: column;
+        gap: 4px;
     }
 
-    .service-logo-box:active .tooltip,
-    .service-logo-box:focus .tooltip {
+    .service-logo-box img,
+    .service-logo-box svg {
+        width: 34px;
+        height: 34px;
+    }
+
+    .service-logo-box .tooltip {
+        position: static;
+        transform: none;
         opacity: 1;
-    }
-
-    .service-logo-box:active {
-        background-color: rgba(128, 0, 255, 0.2);
-        border-color: var(--color-purple);
+        margin: 0;
+        padding: 2px 0 0;
+        background: transparent;
+        color: var(--color-gray);
+        font-size: 0.5rem;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        box-shadow: none;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        text-align: center;
+        line-height: 1;
+        display: block;
     }
 }
 
