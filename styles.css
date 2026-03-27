@@ -600,15 +600,15 @@ section {
 .tech-stack-wrapper {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
     gap: var(--space-md);
     margin-top: var(--space-lg);
     justify-items: center;
 }
 
 .tech-stack-box {
-    width: 65px;
-    height: 65px;
+    width: 70px;
+    height: 70px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -621,11 +621,12 @@ section {
 }
 
 .tech-stack-box img {
-    width: 55%;
-    height: 55%;
+    width: 50%;
+    height: 50%;
     object-fit: contain;
 }
 
+/* ===== TOOLTIP - Desktop hover behavior ===== */
 .tooltip {
     position: absolute;
     bottom: 100%;
@@ -649,6 +650,7 @@ section {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
+/* Desktop hover effects */
 @media (hover: hover) {
     .tech-stack-box:hover {
         transform: translateY(-5px);
@@ -660,25 +662,60 @@ section {
     }
 }
 
-/* Touch devices - show name below icon */
+/* ===== TOUCH DEVICES - Clean label treatment ===== */
 @media (hover: none) and (pointer: coarse) {
-    .tech-stack-box .tooltip,
-    .service-logo-box .tooltip {
+    /* Skills section: Show clean label below icon */
+    .tech-stack-wrapper {
+        grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+        gap: 12px;
+    }
+    
+    .tech-stack-box {
+        width: 72px;
+        height: auto;
+        min-height: 72px;
+        padding: 10px 4px 8px;
+        gap: 6px;
+    }
+    
+    .tech-stack-box img {
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+    }
+    
+    .tech-stack-box .tooltip {
         position: static;
         transform: none;
         opacity: 1;
-        margin-top: 4px;
-        font-size: 0.55rem;
+        margin: 0;
         padding: 0;
         background: transparent;
         color: var(--color-gray);
+        font-size: 0.5rem;
+        font-weight: 500;
         box-shadow: none;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        text-align: center;
+        line-height: 1.2;
     }
     
-    .tech-stack-box,
+    /* Projects section: Hide tooltips entirely, show icons only */
+    .service-logo-box .tooltip {
+        display: none !important;
+    }
+    
     .service-logo-box {
-        height: auto;
-        padding-bottom: 8px;
+        width: 38px;
+        height: 38px;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(auto-fill, minmax(38px, 1fr));
+        gap: 8px;
     }
 }
 
@@ -805,13 +842,14 @@ section {
 .services-grid {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
     gap: 10px;
+    justify-items: center;
 }
 
 .service-logo-box {
-    width: 45px;
-    height: 45px;
+    width: 44px;
+    height: 44px;
     background-color: rgba(128, 0, 255, 0.1);
     border: 1px solid rgba(128, 0, 255, 0.2);
     border-radius: 8px;
@@ -820,16 +858,18 @@ section {
     justify-content: center;
     transition: all 0.3s ease;
     position: relative;
-    margin: 0 auto;
+    flex-shrink: 0;
 }
 
 .service-logo-box img,
 .service-logo-box svg {
-    width: 60%;
-    height: 60%;
+    width: 24px;
+    height: 24px;
     object-fit: contain;
+    flex-shrink: 0;
 }
 
+/* Desktop hover for service logos */
 @media (hover: hover) {
     .service-logo-box:hover {
         background-color: rgba(128, 0, 255, 0.2);
@@ -1086,23 +1126,38 @@ footer {
         max-width: 350px;
     }
     
+    /* Skills section - larger cards on tablet */
     .tech-stack-wrapper {
-        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+        gap: var(--space-lg);
     }
     
     .tech-stack-box {
-        width: 80px;
-        height: 80px;
+        width: 85px;
+        height: 85px;
         border-radius: 18px;
     }
     
+    .tech-stack-box img {
+        width: 48px;
+        height: 48px;
+    }
+    
+    /* Services grid - larger icons on tablet */
     .services-grid {
-        grid-template-columns: repeat(auto-fill, minmax(55px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(54px, 1fr));
+        gap: 12px;
     }
     
     .service-logo-box {
-        width: 55px;
-        height: 55px;
+        width: 54px;
+        height: 54px;
+    }
+    
+    .service-logo-box img,
+    .service-logo-box svg {
+        width: 30px;
+        height: 30px;
     }
     
     .project-box {
@@ -1158,8 +1213,10 @@ footer {
         padding-right: var(--space-2xl);
     }
     
+    /* Skills section - larger cards on desktop */
     .tech-stack-wrapper {
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: var(--space-xl);
     }
     
     .tech-stack-box {
@@ -1168,13 +1225,27 @@ footer {
         border-radius: 22px;
     }
     
+    .tech-stack-box img {
+        width: 56px;
+        height: 56px;
+    }
+    
+    /* Services grid - larger icons on desktop */
     .services-grid {
-        grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+        gap: 14px;
     }
     
     .service-logo-box {
-        width: 65px;
-        height: 65px;
+        width: 64px;
+        height: 64px;
+        border-radius: 10px;
+    }
+    
+    .service-logo-box img,
+    .service-logo-box svg {
+        width: 36px;
+        height: 36px;
     }
 }
 
