@@ -13,11 +13,12 @@
 }
 
 html {
-    font-size: clamp(13px, 2.2vw, 16px);
+    font-size: clamp(14px, 2vw, 16px);
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
     overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 :root {
@@ -286,11 +287,14 @@ header {
 .mobile-menu ul li a {
     color: var(--color-white);
     text-decoration: none;
-    font-size: clamp(1rem, 3.5vw, 1.3rem);
+    font-size: clamp(0.92rem, 2.8vw, 1.15rem);
     display: block;
-    padding: clamp(16px, 4vw, 20px) clamp(20px, 5vw, 30px);
+    padding: clamp(12px, 3vw, 16px) clamp(16px, 4vw, 26px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     transition: background 0.2s ease, color 0.2s ease;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
 }
 
 .mobile-menu ul li a:active {
@@ -334,9 +338,9 @@ header {
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: clamp(12px, 5vw, 60px) 0;
-    gap: clamp(12px, 3vw, 40px);
-    margin-top: clamp(60px, 12vw, 100px);
+    padding: clamp(14px, 3.5vw, 48px) 0;
+    gap: clamp(16px, 3.5vw, 36px);
+    margin-top: clamp(66px, 13vw, 96px);
 }
 
 .text-content {
@@ -351,19 +355,20 @@ header {
 }
 
 #hello-friend {
-    font-size: clamp(1.6rem, 5.5vw, 3.5rem);
+    font-size: clamp(1.35rem, 4.5vw, 3.3rem);
     font-weight: 600;
     width: fit-content;
     display: flex;
     align-items: flex-end;
     color: var(--color-white);
     flex-wrap: wrap;
-    gap: clamp(4px, 1vw, 6px);
-    line-height: 1.3;
+    gap: clamp(2px, 0.6vw, 5px);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
 }
 
 #name {
-    font-size: clamp(2.2rem, 9vw, 8rem);
+    font-size: clamp(1.8rem, 7.5vw, 7.5rem);
     width: fit-content;
     display: flex;
     font-weight: 700;
@@ -374,20 +379,22 @@ header {
     background-size: 400% 400%;
     animation: gradient 3s infinite;
     flex-wrap: wrap;
-    gap: clamp(6px, 2vw, 10px);
-    line-height: 1.1;
+    gap: clamp(2px, 1vw, 8px);
+    line-height: 1;
+    letter-spacing: -0.03em;
 }
 
 #work {
-    font-size: clamp(2.2rem, 9vw, 8rem);
+    font-size: clamp(1.8rem, 7.5vw, 7.5rem);
     width: 100%;
     display: flex;
     font-weight: 700;
     align-items: flex-start;
     flex-wrap: wrap;
     color: var(--color-white);
-    gap: clamp(6px, 2vw, 8px);
-    line-height: 1.1;
+    gap: clamp(2px, 1vw, 6px);
+    line-height: 1;
+    letter-spacing: -0.03em;
 }
 
 #work div {
@@ -403,11 +410,12 @@ header {
 
 #info-para {
     width: 100%;
-    padding-top: clamp(12px, 3vw, 30px);
+    padding-top: clamp(10px, 2.5vw, 20px);
     color: var(--color-ddd-color, #ccc);
-    line-height: 1.7;
+    line-height: 1.55;
     font-weight: 400;
-    font-size: clamp(0.9rem, 2.2vw, 2rem);
+    font-size: clamp(0.9rem, 2vw, 1.8rem);
+    max-width: 540px;
 }
 
 .jello {
@@ -434,7 +442,7 @@ header {
 
 .contact-btn-div {
     width: 100%;
-    padding-top: clamp(20px, 5vw, 50px);
+    padding-top: clamp(12px, 2.5vw, 28px);
     height: auto;
     display: flex;
     align-items: center;
@@ -466,10 +474,11 @@ header {
     justify-content: center;
     letter-spacing: 0.8px;
     font-weight: 700;
-    padding: clamp(10px, 2vw, 15px) clamp(14px, 3.5vw, 20px);
-    font-size: clamp(0.85rem, 1.8vw, 1rem);
-    min-height: 42px;
+    padding: clamp(10px, 2.2vw, 14px) clamp(16px, 3.5vw, 22px);
+    font-size: clamp(0.8rem, 1.7vw, 0.92rem);
+    min-height: 44px;
     line-height: 1.2;
+    touch-action: manipulation;
 }
 
 .letsTalkBtn-BG {
@@ -503,7 +512,7 @@ header {
 
 section {
     width: 100%;
-    padding: clamp(24px, 6vw, 60px) clamp(12px, 3vw, 30px);
+    padding: clamp(22px, 5vw, 50px) clamp(14px, 3.5vw, 30px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -519,26 +528,26 @@ section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: clamp(24px, 6vw, 60px) clamp(12px, 3vw, 30px);
+    padding: clamp(22px, 5vw, 50px) clamp(14px, 3.5vw, 30px);
 }
 
 .section-heading {
     width: 100%;
     display: flex;
     align-items: center;
-    gap: clamp(6px, 1.5vw, 10px);
-    margin-bottom: clamp(0.8rem, 2.5vw, 2rem);
+    gap: clamp(5px, 1.1vw, 8px);
+    margin-bottom: clamp(0.8rem, 2vw, 1.6rem);
     flex-wrap: wrap;
 }
 
 .section-heading-article {
-    font-size: clamp(1.6rem, 4.5vw, 3rem);
+    font-size: clamp(1.45rem, 4vw, 2.8rem);
     font-weight: 500;
     background-image: linear-gradient(90deg, var(--static-heading-gradient-blue), var(--static-heading-gradient-pink));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    line-height: 1.2;
+    line-height: 1.1;
 }
 
 .sectionHeadingP {
@@ -565,8 +574,8 @@ section {
 .about-info p {
     color: var(--color-white);
     font-weight: 400;
-    font-size: clamp(0.95rem, 2.3vw, 2rem);
-    line-height: 1.65;
+    font-size: clamp(0.88rem, 1.9vw, 1.8rem);
+    line-height: 1.6;
 }
 
 .dp {
@@ -592,8 +601,9 @@ section {
 
     .landing-page-container {
         flex-direction: row;
-        min-height: min(100vh, 600px);
-        padding: 60px 0;
+        min-height: min(100vh, 550px);
+        padding: 50px 0;
+        margin-top: clamp(70px, 8vw, 100px);
     }
 
     .blob {
@@ -621,7 +631,7 @@ section {
 
     .project-box {
         flex-direction: row;
-        min-height: 400px;
+        min-height: auto;
     }
 
     .info-div {
@@ -639,18 +649,18 @@ section {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: clamp(16px, 3.5vw, 50px);
-    margin-top: clamp(24px, 6vw, 50px);
+    gap: clamp(9px, 2.3vw, 34px);
+    margin-top: clamp(14px, 4vw, 33px);
 }
 
 .tech-stack-box {
-    width: clamp(90px, 18vw, 160px);
-    height: clamp(90px, 18vw, 160px);
+    width: clamp(72px, 14vw, 135px);
+    height: clamp(72px, 14vw, 135px);
     display: flex;
     align-items: center;
     justify-content: center;
     background-image: linear-gradient(to bottom right, var(--tech-stack-box-first-color), var(--tech-stack-box-second-color));
-    border-radius: 30px;
+    border-radius: 26px;
     border: 1px solid var(--tech-stack-box-border-color);
     position: relative;
     transition: all 0.3s ease;
@@ -704,23 +714,23 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: clamp(12px, 3vw, 40px);
+    gap: clamp(8px, 2.2vw, 28px);
     width: 100%;
     flex-wrap: wrap;
 }
 
 .certificate-card {
-    width: clamp(180px, 75vw, 280px);
+    width: clamp(145px, 62vw, 240px);
     height: auto;
     background-image: linear-gradient(to bottom right, var(--tech-stack-box-first-color), var(--tech-stack-box-second-color));
     border: 1px solid var(--tech-stack-box-border-color);
-    border-radius: 20px;
-    padding: clamp(12px, 3vw, 30px);
+    border-radius: 16px;
+    padding: clamp(11px, 2.1vw, 20px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: clamp(10px, 2.5vw, 20px);
+    gap: clamp(6px, 1.6vw, 13px);
     transition: all 0.3s ease;
     cursor: pointer;
 }
@@ -732,8 +742,8 @@ section {
 }
 
 .certificate-icon {
-    width: clamp(70px, 15vw, 100px);
-    height: clamp(70px, 15vw, 100px);
+    width: clamp(52px, 11.5vw, 80px);
+    height: clamp(52px, 11.5vw, 80px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -750,21 +760,21 @@ section {
 }
 
 .certificate-name {
-    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-size: clamp(1rem, 2.3vw, 1.5rem);
     font-weight: 600;
     color: var(--color-white);
-    margin-bottom: 8px;
+    margin-bottom: 2px;
     letter-spacing: 0.5px;
 }
 
 .certificate-issuer {
-    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    font-size: clamp(0.85rem, 2vw, 1.1rem);
     color: var(--color-light-blue);
-    margin-bottom: 6px;
+    margin-bottom: 2px;
 }
 
 .certificate-year {
-    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    font-size: clamp(0.75rem, 1.6vw, 0.95rem);
     color: #aaa;
 }
 
@@ -844,9 +854,8 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: clamp(20px, 6vw, 50px);
-    padding: clamp(12px, 4vw, 50px);
-}
+    gap: clamp(18px, 5.5vw, 44px);
+    padding: clamp(12px, 3.5vw, 40px);\n}
 
 .project-box-wrapper {
     width: 100%;
@@ -855,12 +864,12 @@ section {
 .project-box {
     width: 100%;
     height: auto;
-    min-height: clamp(300px, 80vw, 400px);
+    min-height: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     transition: 0.3s;
-    border-radius: 30px;
+    border-radius: 22px;
     border: 1px solid var(--tech-stack-box-border-color);
     background-image: linear-gradient(to bottom right, var(--tech-stack-box-first-color), var(--tech-stack-box-second-color));
     overflow: hidden;
@@ -874,15 +883,15 @@ section {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: clamp(10px, 2.5vw, 20px);
-    padding: clamp(16px, 3vw, 40px);
+    gap: clamp(8px, 1.8vw, 16px);
+    padding: clamp(12px, 2.4vw, 30px);
 }
 
 .image-div {
     width: 100%;
     height: auto;
-    min-height: clamp(200px, 60vw, 250px);
-    padding: clamp(12px, 2vw, 40px);
+    min-height: clamp(150px, 42vw, 250px);
+    padding: clamp(10px, 1.8vw, 26px);
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -899,16 +908,16 @@ section {
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(clamp(50px, 12vw, 90px), 1fr));
-    gap: clamp(8px, 1.5vw, 20px);
+    grid-template-columns: repeat(auto-fit, minmax(clamp(40px, 9.5vw, 78px), 1fr));
+    gap: clamp(5px, 0.9vw, 15px);
     align-content: center;
     justify-items: center;
-    padding: clamp(8px, 1.5vw, 15px);
+    padding: clamp(6px, 1.2vw, 10px);
 }
 
 .service-logo-box {
-    width: clamp(50px, 12vw, 90px);
-    height: clamp(50px, 12vw, 90px);
+    width: clamp(40px, 9.5vw, 78px);
+    height: clamp(40px, 9.5vw, 78px);
     background-color: rgba(128, 0, 255, 0.1);
     border: 1px solid rgba(128, 0, 255, 0.3);
     border-radius: 8px;
@@ -917,6 +926,7 @@ section {
     justify-content: center;
     transition: all 0.3s ease;
     position: relative;
+    touch-action: manipulation;
 }
 
 .service-logo-box img {
@@ -933,16 +943,16 @@ section {
 
 .ProjectHeading {
     color: var(--color-white);
-    font-size: clamp(1.2rem, 3.5vw, 3.4rem);
+    font-size: clamp(1rem, 3vw, 2.8rem);
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.1;
 }
 
 .ProjectDescription {
     color: gray;
-    font-size: clamp(0.9rem, 2.2vw, 1.7rem);
+    font-size: clamp(0.8rem, 1.9vw, 1.4rem);
     font-weight: 400;
-    line-height: 1.65;
+    line-height: 1.55;
 }
 
 .project-tech-stack {
@@ -1070,7 +1080,7 @@ footer {
 
 .footer-blob {
     width: 100%;
-    height: clamp(100px, 25vh, 200px);
+    height: clamp(65px, 16vh, 150px);
     background-color: var(--color-light-purple);
     border-radius: 50%;
     filter: blur(100px);
@@ -1106,13 +1116,14 @@ footer {
     align-items: center;
     justify-content: center;
     height: auto;
-    padding: clamp(12px, 3vw, 25px) clamp(12px, 3vw, 30px);
+    padding: clamp(10px, 2.2vw, 18px) clamp(14px, 3.5vw, 28px);
+    text-align: center;
 }
 
 .two-words article {
-    font-size: clamp(1rem, 3vw, 3rem);
+    font-size: clamp(0.9rem, 2.3vw, 2.3rem);
     color: var(--color-white);
-    line-height: 1.3;
+    line-height: 1.35;
     text-align: center;
 }
 
@@ -1122,8 +1133,8 @@ footer {
     align-items: center;
     justify-content: center;
     width: 100%;
-    gap: clamp(12px, 2.5vw, 25px);
-    padding: clamp(12px, 3vw, 25px);
+    gap: clamp(9px, 2vw, 22px);
+    padding: clamp(10px, 2.2vw, 22px);
 }
 
 .getintouch-heading {
@@ -1136,13 +1147,13 @@ footer {
 }
 
 .getintouch-heading article {
-    font-size: clamp(1rem, 2.5vw, 1.8rem);
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
     background: linear-gradient(-45deg, var(--color-light-blue), var(--color-light-purple), var(--color-light-blue), var(--color-light-purple));
     background-clip: text;
     -webkit-background-clip: text;
     font-weight: 700;
     color: var(--color-white);
-    line-height: 1.3;
+    line-height: 1.2;
 }
 
 .logos {
@@ -1157,20 +1168,20 @@ footer {
 }
 
 .social-media-container a {
-    width: clamp(42px, 10vw, 60px);
-    height: clamp(42px, 10vw, 60px);
+    width: clamp(40px, 8.5vw, 52px);
+    height: clamp(40px, 8.5vw, 52px);
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    padding: 6px;
+    padding: 4px;
     border-radius: 50%;
     border: 2px solid #e2dede;
     position: relative;
     box-shadow: 0 0 0 #8000ff inset;
     transition: 0.3s;
-    min-height: 42px;
-    min-width: 42px;
+    min-height: 40px;
+    min-width: 40px;
 }
 
 .social-media-container a:hover {
@@ -1203,33 +1214,33 @@ footer {
 }
 
 .footer-bottom article {
-    font-size: clamp(0.8rem, 2.2vw, 1.3rem);
+    font-size: clamp(0.7rem, 1.6vw, 1rem);
     color: #b0b0b0;
     text-align: center;
-    line-height: 1.4;
+    line-height: 1.3;
 }
 
 .visitor-section {
     width: 100%;
-    padding: clamp(16px, 3vw, 30px);
+    padding: clamp(10px, 2vw, 22px);
     background: linear-gradient(135deg, rgba(128, 0, 255, 0.05) 0%, rgba(128, 0, 255, 0.02) 100%);
     border-top: 1px solid rgba(128, 0, 255, 0.1);
     text-align: center;
 }
 
 .visitor-section h3 {
-    font-size: clamp(1rem, 2.8vw, 1.6rem);
+    font-size: clamp(0.9rem, 2.3vw, 1.4rem);
     color: var(--color-white);
-    margin-bottom: clamp(10px, 2vw, 20px);
+    margin-bottom: clamp(6px, 1.2vw, 14px);
     font-weight: 700;
-    line-height: 1.3;
+    line-height: 1.25;
 }
 
 .visitor-flags {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: clamp(8px, 1.5vw, 15px);
+    gap: clamp(4px, 0.8vw, 10px);
     align-items: center;
 }
 
@@ -1237,10 +1248,10 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: clamp(3px, 0.8vw, 8px);
+    gap: clamp(1px, 0.3vw, 4px);
     cursor: pointer;
     transition: transform 0.3s, filter 0.3s;
-    min-width: 45px;
+    min-width: 34px;
 }
 
 .flag-item:hover {
@@ -1249,21 +1260,21 @@ footer {
 }
 
 .flag {
-    font-size: clamp(1.5rem, 4.5vw, 3rem);
+    font-size: clamp(1.2rem, 3.5vw, 2.6rem);
     line-height: 1;
 }
 
 .flag-count {
-    font-size: clamp(0.65rem, 1.6vw, 0.9rem);
+    font-size: clamp(0.55rem, 1.2vw, 0.8rem);
     color: var(--color-light-purple);
     font-weight: 600;
-    line-height: 1.2;
+    line-height: 1;
 }
 
 .flag-name {
-    font-size: clamp(0.6rem, 1.4vw, 0.8rem);
+    font-size: clamp(0.5rem, 1vw, 0.7rem);
     color: var(--color-light-blue);
-    line-height: 1.2;
+    line-height: 1;
 }
 
 /* ===== RESPONSIVE DESIGN - Mobile-First Breakpoints ===== */
