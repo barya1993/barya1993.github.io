@@ -326,14 +326,13 @@ header {
 
 .landing-page-container {
     width: 100%;
-    min-height: calc(100vh - 80px);
-    min-height: calc(100dvh - 80px);
+    min-height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: var(--space-xl) var(--space-md);
+    padding: var(--space-2xl) var(--space-md) var(--space-xl);
     margin-top: 70px;
 }
 
@@ -452,12 +451,12 @@ header {
 }
 
 .letsTalkBtn-text {
-    background-color: rgba(230, 230, 230, 0.9);
+    background-color: rgba(255, 255, 255, 0.95);
     border: none;
     border-radius: 8px;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    color: #000;
+    color: #0a0a0a;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -664,58 +663,68 @@ section {
 
 /* ===== TOUCH DEVICES - Clean label treatment ===== */
 @media (hover: none) and (pointer: coarse) {
-    /* Skills section: Show clean label below icon */
+    /* Skills section: Hide floating tooltip, show clean label below icon */
     .tech-stack-wrapper {
-        grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
-        gap: 12px;
+        grid-template-columns: repeat(auto-fill, minmax(74px, 1fr));
+        gap: 10px;
     }
-    
+
     .tech-stack-box {
-        width: 72px;
+        width: 100%;
+        max-width: 90px;
         height: auto;
-        min-height: 72px;
-        padding: 10px 4px 8px;
-        gap: 6px;
+        padding: 10px 6px 8px;
+        gap: 4px;
+        overflow: visible;
     }
-    
+
     .tech-stack-box img {
-        width: 36px;
-        height: 36px;
+        width: 32px;
+        height: 32px;
         flex-shrink: 0;
     }
-    
+
     .tech-stack-box .tooltip {
         position: static;
         transform: none;
         opacity: 1;
         margin: 0;
-        padding: 0;
+        padding: 2px 0 0;
         background: transparent;
         color: var(--color-gray);
-        font-size: 0.5rem;
+        font-size: 0.55rem;
         font-weight: 500;
+        letter-spacing: 0.02em;
         box-shadow: none;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         max-width: 100%;
         text-align: center;
-        line-height: 1.2;
+        line-height: 1;
+        display: block;
     }
-    
-    /* Projects section: Hide tooltips entirely, show icons only */
+
+    /* Projects section: Hide tooltips entirely, icons only */
     .service-logo-box .tooltip {
         display: none !important;
     }
-    
-    .service-logo-box {
-        width: 38px;
-        height: 38px;
-    }
-    
+
     .services-grid {
-        grid-template-columns: repeat(auto-fill, minmax(38px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(42px, 1fr));
         gap: 8px;
+    }
+
+    .service-logo-box {
+        width: 42px;
+        height: 42px;
+        overflow: visible;
+    }
+
+    .service-logo-box img,
+    .service-logo-box svg {
+        width: 26px;
+        height: 26px;
     }
 }
 
@@ -842,14 +851,15 @@ section {
 .services-grid {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(46px, 1fr));
     gap: 10px;
     justify-items: center;
+    overflow: visible;
 }
 
 .service-logo-box {
-    width: 44px;
-    height: 44px;
+    width: 46px;
+    height: 46px;
     background-color: rgba(128, 0, 255, 0.1);
     border: 1px solid rgba(128, 0, 255, 0.2);
     border-radius: 8px;
@@ -859,14 +869,16 @@ section {
     transition: all 0.3s ease;
     position: relative;
     flex-shrink: 0;
+    overflow: visible;
 }
 
 .service-logo-box img,
 .service-logo-box svg {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     object-fit: contain;
     flex-shrink: 0;
+    display: block;
 }
 
 /* Desktop hover for service logos */
@@ -1145,19 +1157,19 @@ footer {
     
     /* Services grid - larger icons on tablet */
     .services-grid {
-        grid-template-columns: repeat(auto-fill, minmax(54px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(56px, 1fr));
         gap: 12px;
     }
     
     .service-logo-box {
-        width: 54px;
-        height: 54px;
+        width: 56px;
+        height: 56px;
     }
     
     .service-logo-box img,
     .service-logo-box svg {
-        width: 30px;
-        height: 30px;
+        width: 32px;
+        height: 32px;
     }
     
     .project-box {
@@ -1203,8 +1215,8 @@ footer {
     
     .landing-page-container {
         flex-direction: row;
-        min-height: calc(100vh - 100px);
-        padding: var(--space-2xl);
+        min-height: auto;
+        padding: var(--space-3xl) var(--space-2xl) var(--space-2xl);
     }
     
     .text-content {
@@ -1232,20 +1244,20 @@ footer {
     
     /* Services grid - larger icons on desktop */
     .services-grid {
-        grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(66px, 1fr));
         gap: 14px;
     }
     
     .service-logo-box {
-        width: 64px;
-        height: 64px;
+        width: 66px;
+        height: 66px;
         border-radius: 10px;
     }
     
     .service-logo-box img,
     .service-logo-box svg {
-        width: 36px;
-        height: 36px;
+        width: 38px;
+        height: 38px;
     }
 }
 
