@@ -626,7 +626,7 @@ section {
     object-fit: contain;
 }
 
-/* ===== TOOLTIP - Desktop hover behavior ===== */
+/* ===== TOOLTIP ===== */
 .tooltip {
     position: absolute;
     bottom: 100%;
@@ -656,54 +656,28 @@ section {
         transform: translateY(-5px);
         border-color: var(--color-purple);
     }
-    
-    .tech-stack-box:hover .tooltip {
+
+    .tech-stack-box:hover .tooltip,
+    .service-logo-box:hover .tooltip {
         opacity: 1;
     }
 }
 
-/* ===== TOUCH DEVICES - Clean label treatment ===== */
+/* ===== TOUCH DEVICES - Tap to show tooltip ===== */
 @media (hover: none) and (pointer: coarse) {
-    /* Skills section: Hide floating tooltip, show clean label below icon */
-    .tech-stack-wrapper {
-        grid-template-columns: repeat(auto-fill, minmax(74px, 1fr));
-        gap: 10px;
-    }
-
     .tech-stack-box {
-        width: 100%;
-        max-width: 90px;
-        height: auto;
-        padding: 10px 6px 8px;
-        gap: 4px;
-        overflow: visible;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
     }
 
-    .tech-stack-box img {
-        width: 32px;
-        height: 32px;
-        flex-shrink: 0;
-    }
-
-    .tech-stack-box .tooltip {
-        position: static;
-        transform: none;
+    .tech-stack-box:active .tooltip,
+    .tech-stack-box:focus .tooltip {
         opacity: 1;
-        margin: 0;
-        padding: 2px 0 0;
-        background: transparent;
-        color: var(--color-gray);
-        font-size: 0.55rem;
-        font-weight: 500;
-        letter-spacing: 0.02em;
-        box-shadow: none;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 100%;
-        text-align: center;
-        line-height: 1;
-        display: block;
+    }
+
+    .tech-stack-box:active {
+        transform: translateY(-5px);
+        border-color: var(--color-purple);
     }
 
     /* Projects section: Hide tooltips entirely, icons only */
