@@ -680,26 +680,20 @@ section {
         border-color: var(--color-purple);
     }
 
-    /* Projects section: Hide tooltips entirely, icons only */
-    .service-logo-box .tooltip {
-        display: none !important;
-    }
-
-    .services-grid {
-        grid-template-columns: repeat(auto-fill, minmax(42px, 1fr));
-        gap: 8px;
-    }
-
+    /* Projects section: Tap to show tooltip */
     .service-logo-box {
-        width: 42px;
-        height: 42px;
-        overflow: visible;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
     }
 
-    .service-logo-box img,
-    .service-logo-box svg {
-        width: 26px;
-        height: 26px;
+    .service-logo-box:active .tooltip,
+    .service-logo-box:focus .tooltip {
+        opacity: 1;
+    }
+
+    .service-logo-box:active {
+        background-color: rgba(128, 0, 255, 0.2);
+        border-color: var(--color-purple);
     }
 }
 
@@ -796,7 +790,7 @@ section {
     border-radius: 16px;
     border: 1px solid var(--tech-stack-box-border-color);
     background-image: linear-gradient(to bottom right, var(--tech-stack-box-first-color), var(--tech-stack-box-second-color));
-    overflow: hidden;
+    overflow: visible;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -813,6 +807,8 @@ section {
     flex-direction: column;
     gap: var(--space-sm);
     padding: var(--space-lg);
+    border-radius: 16px 16px 0 0;
+    overflow: hidden;
 }
 
 .image-div {
@@ -821,6 +817,8 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 0 0 16px 16px;
+    overflow: hidden;
 }
 
 .services-grid {
